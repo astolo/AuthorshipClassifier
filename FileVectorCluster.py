@@ -54,4 +54,5 @@ class FileVectorCluster(object):
         coreVectors = [vector for vector in self.vectorList if self.vectorIsInCore(vector.featureVector, clustersCenterList )]
         return coreVectors
 
-
+    def calculateCoreVectors2():
+        pass
