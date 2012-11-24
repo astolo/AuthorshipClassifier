@@ -4,6 +4,7 @@ import scipy.spatial.distance
 
 TOP_ANGLE = 1.0 / math.sqrt(2)
 BOTOM_ANGLE = 0.1
+CLOSEST_VECTORS_RATIO = 0.8
 
 def cosine(vector1, vector2):
     """ related documents j and q are in the concept space by comparing the vectors :
@@ -54,5 +55,23 @@ class FileVectorCluster(object):
         coreVectors = [vector for vector in self.vectorList if self.vectorIsInCore(vector.featureVector, clustersCenterList )]
         return coreVectors
 
-    def calculateCoreVectors2():
+    def getClosestToCenter(self):
+        vectorsList = [vector for vector.featureVector in self.vectorList]
+        vectorArray = numpy.array(vectorList)
+        distanceVector = numpy.linalg.norm(numpy.subtract(vectorArray, self.center))
+        distanceList = distanceVector.tolist()
+        distanceZipped = zip(self.vectorList, distanceList)
+        distanceResult = sorted(distanceZipped, key=lambda distance: distance[1])
+        listSize = int( len(distanceList) * CLOSEST_VECTORS_RATIO)
+        distanceResultVectors, distances  = zip(*distanceResult)
+        result = distanceResultVectors[:listSize]
+        return result
+
+    def getFurthestFromCenters(self, clustersCenterList):
         pass
+
+    def calculateCoreVectors2(self, clustersCenterList):
+        closestToCenterList = getClosestToCenter()
+        furthestFromOtherList = getFurthestFromCenters(clustersCenterList)
+        coreVectors = [vector for vector in self.vectorList if vector in closestToCenterList and vector in furthestFromOtherList]
+        return coreVectors
