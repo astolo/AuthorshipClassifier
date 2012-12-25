@@ -68,7 +68,18 @@ class FileVectorCluster(object):
         return result
 
     def getFurthestFromCenters(self, clustersCenterList):
-        pass
+        vectorsList = [vector for vector.featureVector in self.vectorList]
+        vectorArray = numpy.array(vectorList)
+        result = None
+        for center in clustersCenterList:
+            distanceVector = numpy.linalg.norm(numpy.subtract(vectorArray, self.center))
+            distanceList = distanceVector.tolist()
+            distanceZipped = zip(self.vectorList, distanceList)
+            distanceResult = sorted(distanceZipped, key=lambda distance: distance[1], reverse = True)
+            listSize = int( len(distanceList) * CLOSEST_VECTORS_RATIO)
+            distanceResultVectors, distances  = zip(*distanceResult)
+            result = [vector for vector in distanceResultVectors[:listSize] if (result == None or vector in result) ]
+        return result
 
     def calculateCoreVectors2(self, clustersCenterList):
         closestToCenterList = getClosestToCenter()
