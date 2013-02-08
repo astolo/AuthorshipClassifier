@@ -47,15 +47,15 @@ class SVMClustering(object):
              clusterFileLines = clustersFile.readlines()
              zippedList = zip(clusterFileLines, self.testVectorList)
              for zipTuple in zippedList:
-                cluster = zippedList[0].split()[0]
-                zippedList[1].cluster = int(cluster)
+                cluster = zipTuple[0].split()[0]
+                zipTuple[1].cluster = int(cluster)
 
         clusters = [None] * numberOfClusters
         allVectorsList = []
-        allVectorsList.append(self.testVectorList)
-        allVectorsList.append(self.trainingVectorList)
+        allVectorsList.extend(self.testVectorList)
+        allVectorsList.extend(self.trainingVectorList)
         for vector in allVectorsList:
-            i = vector.cluster
+            i = vector.cluster - 1
             if (clusters[i] == None):
                 clusters[i] = [vector]
             else:
@@ -64,7 +64,8 @@ class SVMClustering(object):
         for cluster in clusters:
             clusterFilePath = clustersFilePath + "-%d" % (i)
             with open(clusterFilePath, "w") as clusterFile:
-                clusterFile.writelines(cluster)
+                for vector in cluster:
+                    clusterFile.writelines(vector.clusterString())
             i = i + 1
 
         return clusters

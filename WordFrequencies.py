@@ -1,5 +1,6 @@
 import os
 import operator
+import codecs
 
 class WordFrequencies(object):
     """This class calculates word frequencies"""
@@ -18,17 +19,18 @@ class WordFrequencies(object):
         pass
 
     def addFileToDictionary(self, wordFilePath):
-        with open(wordFilePath) as wordsFile:
+        with codecs.open(wordFilePath, 'r', 'utf-8-sig') as wordsFile:
+        #with open(wordFilePath) as wordsFile:
             wordsList = wordsFile.read().split()
             self.numOfTotalWords += len(wordsList)
             for word in wordsList:
                 if (len(word) == 1):
                     continue
-                unicodeWord = unicode(word, 'utf-8')
-                if unicodeWord in self.wordDict:
-                    self.wordDict[unicodeWord] +=1
+                #unicodeWord = unicode(word, 'utf-8-sig')
+                if word in self.wordDict:
+                    self.wordDict[word] +=1
                 else:
-                    self.wordDict[unicodeWord] = 1
+                    self.wordDict[word] = 1
 
         pass
 
@@ -43,8 +45,18 @@ class WordFrequencies(object):
                 freq_dict[word] = wordFreqency
         return freq_dict
 
-    def hasWordInDictionary(self, word):
-        return self.wordDict.has_key(word)
+    def hasWordInDictionary(self, word, minFrequency = 0):
+       #safeWord = word.replace(u'\ufeff',u'')
+        if (self.wordDict.has_key(word)) :
+            wordFreqency = float(self.wordDict[word]) / self.numOfTotalWords
+            if (wordFreqency > minFrequency ):
+                return True
+            else:
+                return False
+        else:
+            return False
+
+
 
     def printFreqencyDictionaryToFileSorted(self, dictionary, filePath, printFrequencies = True):
         with open(filePath,'w') as dictionayFile:

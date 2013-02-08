@@ -43,7 +43,7 @@ class FileVectorCollection(object):
     """ description of the class"""
 
     def __init__(self, wordListFilePath, sourceFileDirectory=None):
-        with codecs.open(wordListFilePath, 'r', 'utf-8') as wordsListFile:
+        with codecs.open(wordListFilePath, 'r', 'utf-8-sig') as wordsListFile:
             self.wordList = wordsListFile.read().split()
         self.vectorsList = []
         if (sourceFileDirectory != None):

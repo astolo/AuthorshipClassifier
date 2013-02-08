@@ -1,4 +1,7 @@
 import WordFrequencies
+import numpy
+
+MIN_FREQUENCY = 0.0001
 
 class FileVector(object):
     """description of class"""
@@ -7,7 +10,7 @@ class FileVector(object):
         # make the next 3 lines as a template function.
         wordFreq = WordFrequencies.WordFrequencies(r'')
         wordFreq.addFileToDictionary(self.filePath)
-        fileWordsList = map(lambda word: int(wordFreq.hasWordInDictionary(word)) , wordList)
+        fileWordsList = map(lambda word: int(wordFreq.hasWordInDictionary(word, MIN_FREQUENCY)) , wordList)
         self.sum = sum(fileWordsList)
         self.featureVector = numpy.array(fileWordsList)
 
@@ -23,6 +26,9 @@ class FileVector(object):
 
     def __str__(self):
         return "%s\t%s\t%s\t%d\n" % (str(self.featureVector.tolist()), self.filePath, self.cluster, self.sum)
+
+    def clusterString(self):
+        return "%s\t%s\t%d\n" % (self.filePath, self.cluster, self.sum)
 
     def setCluster(self, cluster):
         self.cluster = cluster
