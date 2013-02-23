@@ -10,59 +10,75 @@ ShowFileExtensions=FALSE
 ClassName=TProjectFilesNode
 
 [Project\ChildNodes\Node0\ChildNodes\Node0]
+ClassName=TProjectFolderNode
+Name=Clustering
+
+[Project\ChildNodes\Node0\ChildNodes\Node0\ChildNodes\Node0]
 ClassName=TProjectFileNode
-FileName=C:\Thesis\Code\AuthorshipClassifier\AuthorshipClassifier\AuthorshipClassifier.py
+FileName=C:\Thesis\Code\AuthorshipClassifier\AuthorshipClassifier\Clustering\GraclusClustering.py
+
+[Project\ChildNodes\Node0\ChildNodes\Node0\ChildNodes\Node1]
+ClassName=TProjectFileNode
+FileName=C:\Thesis\Code\AuthorshipClassifier\AuthorshipClassifier\Clustering\SVMClustering.py
+
+[Project\ChildNodes\Node0\ChildNodes\Node0\ChildNodes]
+Count=2
 
 [Project\ChildNodes\Node0\ChildNodes\Node1]
+ClassName=TProjectFolderNode
+Name=Config
+
+[Project\ChildNodes\Node0\ChildNodes\Node1\ChildNodes\Node0]
 ClassName=TProjectFileNode
-FileName=C:\Thesis\Code\AuthorshipClassifier\AuthorshipClassifier\ClustersGraph.py
+FileName=C:\Thesis\Code\AuthorshipClassifier\AuthorshipClassifier\Config\Config.py
+
+[Project\ChildNodes\Node0\ChildNodes\Node1\ChildNodes]
+Count=1
 
 [Project\ChildNodes\Node0\ChildNodes\Node2]
+ClassName=TProjectFolderNode
+Name=FeatureSelection
+
+[Project\ChildNodes\Node0\ChildNodes\Node2\ChildNodes\Node0]
 ClassName=TProjectFileNode
-FileName=C:\Thesis\Code\AuthorshipClassifier\AuthorshipClassifier\clustringAlgorithm.py
+FileName=C:\Thesis\Code\AuthorshipClassifier\AuthorshipClassifier\FeatureSelection\WordFrequencies.py
+
+[Project\ChildNodes\Node0\ChildNodes\Node2\ChildNodes\Node1]
+ClassName=TProjectFileNode
+FileName=C:\Thesis\Code\AuthorshipClassifier\AuthorshipClassifier\FeatureSelection\WordListSelector.py
+
+[Project\ChildNodes\Node0\ChildNodes\Node2\ChildNodes]
+Count=2
 
 [Project\ChildNodes\Node0\ChildNodes\Node3]
+ClassName=TProjectFolderNode
+Name=FileVector
+
+[Project\ChildNodes\Node0\ChildNodes\Node3\ChildNodes\Node0]
 ClassName=TProjectFileNode
-FileName=C:\Thesis\Code\AuthorshipClassifier\AuthorshipClassifier\config.ini
+FileName=C:\Thesis\Code\AuthorshipClassifier\AuthorshipClassifier\FileVector\FileVector.py
+
+[Project\ChildNodes\Node0\ChildNodes\Node3\ChildNodes\Node1]
+ClassName=TProjectFileNode
+FileName=C:\Thesis\Code\AuthorshipClassifier\AuthorshipClassifier\FileVector\FileVectorCluster.py
+
+[Project\ChildNodes\Node0\ChildNodes\Node3\ChildNodes\Node2]
+ClassName=TProjectFileNode
+FileName=C:\Thesis\Code\AuthorshipClassifier\AuthorshipClassifier\FileVector\FileVectorCollection.py
+
+[Project\ChildNodes\Node0\ChildNodes\Node3\ChildNodes]
+Count=3
 
 [Project\ChildNodes\Node0\ChildNodes\Node4]
 ClassName=TProjectFileNode
-FileName=C:\Thesis\Code\AuthorshipClassifier\AuthorshipClassifier\Config.py
+FileName=C:\Thesis\Code\AuthorshipClassifier\AuthorshipClassifier\AuthorshipClassifier.py
 
 [Project\ChildNodes\Node0\ChildNodes\Node5]
 ClassName=TProjectFileNode
-FileName=C:\Thesis\Code\AuthorshipClassifier\AuthorshipClassifier\FileVector.py
-
-[Project\ChildNodes\Node0\ChildNodes\Node6]
-ClassName=TProjectFileNode
-FileName=C:\Thesis\Code\AuthorshipClassifier\AuthorshipClassifier\FileVectorCluster.py
-
-[Project\ChildNodes\Node0\ChildNodes\Node7]
-ClassName=TProjectFileNode
-FileName=C:\Thesis\Code\AuthorshipClassifier\AuthorshipClassifier\FileVectorCollection.py
-
-[Project\ChildNodes\Node0\ChildNodes\Node8]
-ClassName=TProjectFileNode
-FileName=C:\Thesis\Code\AuthorshipClassifier\AuthorshipClassifier\FileWordsVector.py
-
-[Project\ChildNodes\Node0\ChildNodes\Node9]
-ClassName=TProjectFileNode
-FileName=C:\Thesis\Code\AuthorshipClassifier\AuthorshipClassifier\GraclusClustering.py
-
-[Project\ChildNodes\Node0\ChildNodes\Node10]
-ClassName=TProjectFileNode
-FileName=C:\Thesis\Code\AuthorshipClassifier\AuthorshipClassifier\KernelKMeans.py
-
-[Project\ChildNodes\Node0\ChildNodes\Node11]
-ClassName=TProjectFileNode
-FileName=C:\Thesis\Code\AuthorshipClassifier\AuthorshipClassifier\SVMClustering.py
-
-[Project\ChildNodes\Node0\ChildNodes\Node12]
-ClassName=TProjectFileNode
-FileName=C:\Thesis\Code\AuthorshipClassifier\AuthorshipClassifier\WordFrequencies.py
+FileName=C:\Thesis\Code\AuthorshipClassifier\AuthorshipClassifier\ClustersGraph.py
 
 [Project\ChildNodes\Node0\ChildNodes]
-Count=13
+Count=6
 
 [Project\ChildNodes\Node1]
 ClassName=TProjectRunConfiguationsNode
@@ -71,5 +87,9 @@ ClassName=TProjectRunConfiguationsNode
 Count=2
 
 [Project\ExtraPythonPath]
-Count=0
+Item0=C:\Thesis\Code\AuthorshipClassifier\AuthorshipClassifier\FeatureSelection
+Item1=C:\Thesis\Code\AuthorshipClassifier\AuthorshipClassifier\Clustering
+Item2=C:\Thesis\Code\AuthorshipClassifier\AuthorshipClassifier\FileVector
+Item3=C:\Thesis\Code\AuthorshipClassifier\AuthorshipClassifier\Config
+Count=4
 
